@@ -1,0 +1,73 @@
+<div class="fundo">
+   <div class="container-fluid"><br><br>
+      <div class="container"><br><br><br><br><br><br><br><br><br>
+         <table class="table table-bordered">
+            <thead class="table-primary">
+               <tr>
+                  <th>Frutas</th>
+                  <th>Quantidade de Caixas</th>
+                  <th>Ações</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let fruta of listafrutas; let i = index">
+                  <td>
+                     <span *ngIf="!editorFrutas || editorFrutas !== fruta">{{ fruta.nome }}</span>
+                     <div *ngIf="editorFrutas === fruta">
+                        <input type="text" maxlength="10" class="form-control" [(ngModel)]="fruta.nome" />
+                     </div>
+                  <td>
+                     <span *ngIf="!editorFrutas || editorFrutas!== fruta">{{ fruta.quantidade }}</span>
+                     <div *ngIf="editorFrutas === fruta">
+                        <input type="number"
+                           oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                           maxlength="6" class="form-control" [(ngModel)]="fruta.quantidade" />
+                     </div>
+                  </td>
+                  <td class="bnt-custom">
+                     <div class="btn" id="img" (click)="excluirFrutas(i)">
+                     </div>
+                     <div class="btn " id="img1" (click)="editarFrutas(fruta)">
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div><br>
+      <div class="container">
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th>Legumes</th>
+                  <th>Quantidade de Caixas</th>
+                  <th>Ações</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let legume of listalegumes; let i = index">
+                  <td>
+                     <span *ngIf="!editorLegumes || editorLegumes !== legume">{{ legume.nome }}</span>
+                     <div *ngIf="editorLegumes === legume">
+                        <input type="text" maxlength="10" class="form-control" [(ngModel)]="legume.nome" />
+                     </div>
+                  <td>
+                     <span *ngIf="!editorLegumes || editorLegumes !== legume">{{ legume.quantidade }}</span>
+                     <div *ngIf="editorLegumes === legume">
+                        <input type="number"
+                           oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                           maxlength="6" class="form-control" [(ngModel)]="legume.quantidade">
+                     </div>
+                  </td>
+                  <td class="bnt-custom">
+                     <div class="btn " id="img" (click)="excluirLegumes(i)">
+                     </div>
+                     <div class="btn " id="img1" (click)="editarLegumes(legume)">
+                     </div>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<app-forms></app-forms>

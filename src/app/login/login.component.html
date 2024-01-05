@@ -1,0 +1,22 @@
+<div class="fundo">
+    <div class="container">
+      <section class="cadastro">
+        <h1>LOGIN</h1>
+        <form>
+          <div class="input-container">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required>
+          </div>
+          <div class="input-container">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" [(ngModel)]="senha" name="senha" required>
+          </div>
+        </form>
+        <button id="entrar" [disabled]="!isFormValid()" [routerLink]="['/cadastro']" class="btn btn-primary">Entrar</button>
+      </section>
+    </div>
+    <footer>
+      <p>&copy; HORTI-FRUIT</p>
+    </footer>
+  </div>
+

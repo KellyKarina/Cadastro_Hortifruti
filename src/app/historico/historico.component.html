@@ -1,0 +1,19 @@
+<div id="historicoContainer" class="custom-container">
+  <div class="custom-container-content">
+    <div class="custom-container-header">
+      <h5 class="container-title">HISTÓRICO</h5>
+      <a routerLink="/cadastro"><button class="btnVoltar">&times;</button></a>
+    </div>
+    <div class="custom-container-body">
+      <ul>
+        <li *ngFor="let registro of historico; let i = index">
+          {{registro}}
+          <button class="btnRemove" (click)="removerDoHistorico(i)">REMOVER</button><br><br>
+        </li>
+      </ul>
+    </div>
+    <div class="custom-container-footer">
+      <button (click)="limparHistorico()" class="btnLimpar">Limpar Histórico</button>
+    </div>
+  </div>
+</div>
